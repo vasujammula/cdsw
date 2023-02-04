@@ -21,9 +21,10 @@ df.show()
 
 df=spark.sql("show tables")
 df.show()
-m = re.search(r"department",df.show())
-if m is None:
-    spark.sql("""CREATE TABLE department(
+data=df.first()
+print(data)
+spark.sql("DROP TABLE IF EXISTS department")
+spark.sql("""CREATE TABLE IF NOT EXISTS department(
     department_id int ,
     department_name string
     )    
