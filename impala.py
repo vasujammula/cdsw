@@ -12,7 +12,7 @@ from impala.dbapi import connect
 from impala.util import as_pandas
 
 # Connect to Impala
-conn = connect(host=os.getenv("IMPALA_DEMON"),
+conn = connect(host=os.getenv("IMPALA_DAEMON"),
         port=21050,
         auth_mechanism='GSSAPI',
         use_ssl=True,
