@@ -12,17 +12,12 @@ from impala.dbapi import connect
 from impala.util import as_pandas
 
 # Connect to Impala
-for i in ['cml-pvc-prxm-3.cml-pvc-prxm.root.hwx.site','cml-pvc-prxm-1.cml-pvc-prxm.root.hwx.site','cml-pvc-prxm-2.cml-pvc-prxm.root.hwx.site','cml-pvc-prxm-4.cml-pvc-prxm.root.hwx.site']:
-  try:
-    
-    conn = connect(host=i,
+conn = connect(host=os.getenv("IMPALA_DEMON"),
         port=21050,
         auth_mechanism='GSSAPI',
         use_ssl=True,
         kerberos_service_name='impala')
-  except Exception as e :
-    print("NOT ABLE TO CONNECT TO:",i)
-
+ 
 # Execute using SQL
 cursor = conn.cursor()
 
