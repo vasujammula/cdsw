@@ -1,3 +1,4 @@
+#please do not save this file as impala.py
 # Install Libraries
 !pip3 install impyla==0.17.0 --proxy http://pxuser:squidpassword@squid.central-tools.infra.cloudera.com:3128
 !pip3 install thrift==0.11.0 --proxy http://pxuser:squidpassword@squid.central-tools.infra.cloudera.com:3128
