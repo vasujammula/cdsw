@@ -11,6 +11,7 @@ import pandas
 import re
 from impala.dbapi import connect
 from impala.util import as_pandas
+import time
 
 # Connect to Impala
 conn = connect(host=os.getenv("IMPALA_DAEMON"),
@@ -38,6 +39,7 @@ cursor.execute('describe Persons')
 desc_table = as_pandas(cursor)
 print(desc_table)
 
+time.sleep(20)
 #cursor.execute('DROP TABLE Persons')
 #drop_table = as_pandas(cursor)
 #print(drop_table)
