@@ -1,0 +1,12 @@
+SELECT airports_origin.airport               AS airport,
+       Avg(Cast(flights.depdelay AS DOUBLE)) AS avg_depdelay_ok,
+       airports_origin.lat                   AS lat,
+       airports_origin.lon                   AS lon,
+       Sum(1)                                AS sum_number_of_records_ok
+FROM   airlines_new_parquet.flights_external flights
+       JOIN airlines_new_parquet.airports_external airports_origin
+         ON ( flights.origin = airports_origin.iata )
+GROUP  BY airports_origin.airport,
+          airports_origin.lat,
+          airports_origin.lon
+ORDER BY airport
