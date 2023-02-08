@@ -39,14 +39,9 @@ cursor.execute('describe Persons')
 desc_table = as_pandas(cursor)
 print(desc_table)
 
-time.sleep(20)
 #cursor.execute('DROP TABLE Persons')
 #drop_table = as_pandas(cursor)
 #print(drop_table)
-
-cursor.execute('SELECT * FROM Persons')
-table_content = as_pandas(cursor)
-print(table_content)
 
 insert_data = 'INSERT INTO Persons (personid, name, city) VALUES (%s, %s, %s)'
 cursor.execute(insert_data, (1, 'A', 'abc'))
