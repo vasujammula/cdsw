@@ -13,7 +13,7 @@ spark = SparkSession\
     .getOrCreate()
 
 # Add the data file to hdfs.
-!hdfs dfs -put resources/cgroup-v2.txt /tmp
+!hdfs dfs -put cgroup-v2.txt /tmp
 
 lines = spark.read.text("/tmp/cgroup-v2.txt").rdd.map(lambda r: r[0])
 counts = lines.flatMap(lambda x: x.split(' ')) \
